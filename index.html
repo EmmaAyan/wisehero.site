@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://2048.io/ https://game206669.konggames.com/ https://2048game.com/; connect-src 'self' https:;">
+    <title>Wise Hero - Strategic Puzzle Adventure Game | Play Online</title>
+    <meta name="description" content="Challenge your mind with Wise Hero, a strategic puzzle game that tests your logical thinking. Combine identical numbers to achieve higher scores and have fun!">
+    <link rel="canonical" href="https://wisehero.site/">
+    <meta name="keywords" content="wise hero, puzzle game, brain game, strategy game, online game, free game, 2048">
+    <meta property="og:title" content="Wise Hero - Strategic Puzzle Game">
+    <meta property="og:description" content="Challenge your mind with this addictive strategic puzzle game.">
+    <meta property="og:url" content="https://wisehero.site/">
+    <meta property="og:type" content="website">
+    <!-- Use Tailwind CDN for development, for production use PostCSS plugin -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            blue: '#007AFF',
+                            green: '#34C759',
+                            indigo: '#5856D6',
+                            orange: '#FF9500',
+                            pink: '#FF2D55',
+                            purple: '#AF52DE',
+                            red: '#FF3B30',
+                            teal: '#5AC8FA',
+                            yellow: '#FFCC00',
+                            gray: {
+                                100: '#F2F2F7',
+                                200: '#E5E5EA',
+                                300: '#D1D1D6',
+                                400: '#C7C7CC',
+                                500: '#AEAEB2',
+                                600: '#8E8E93',
+                                700: '#636366',
+                                800: '#48484A',
+                                900: '#3A3A3C',
+                            },
+                            dark: '#1C1C1E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* Game container styles */
+        .game-container {
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Game iframe styles */
+        .game-frame {
+            width: 100%;
+            height: 680px;
+            border: none;
+            margin-top: -50px; /* Move content up by 20px */
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .game-frame {
+                height: 680px;
+                margin-top: -40px; /* Keep consistent on mobile */
+            }
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-apple-gray-100 text-apple-gray-900 font-sans">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-apple-blue to-apple-purple py-8 px-4 md:px-8">
+        <div class="container mx-auto max-w-5xl">
+            <h1 class="text-3xl md:text-5xl font-bold text-white text-center mb-4">Wise Hero</h1>
+            <p class="text-xl text-white text-center">A challenging strategic puzzle adventure that sharpens your mind!</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-5xl px-4 py-8">
+        <!-- Game Section -->
+        <section class="mb-12">
+            <div class="game-container">
+                <div class="loading-overlay">
+                    <div class="text-apple-blue font-semibold">Loading game...</div>
+                </div>
+                <iframe 
+                    class="game-frame"
+                    src="https://2048game.com/"
+                    frameborder="0"
+                    scrolling="no"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-top-navigation"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Game Controls Help -->
+            <div class="text-center mt-4 p-3 bg-apple-yellow bg-opacity-10 rounded-lg border border-apple-yellow">
+                <p class="font-semibold text-apple-orange">⌨️ Game Controls</p>
+                <p>Use arrow keys to move tiles or swipe on mobile. Combine identical numbers to achieve higher scores!</p>
+            </div>
+        </section>
+
+        <!-- Game Overview Section -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Game Overview</h2>
+            <p class="text-lg mb-4">Wise Hero is an engaging puzzle game that tests your strategic thinking and planning abilities. The game challenges you to combine identical tiles to create higher-valued ones and aim for the highest score possible. With simple controls but deep strategy, it's perfect for quick gaming sessions or extended play.</p>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mt-8 mb-4">How to Play</h2>
+            <ul class="list-disc pl-6 mb-6 text-lg">
+                <li class="mb-2">Use arrow keys or swipe gestures to move all tiles in one direction</li>
+                <li class="mb-2">When two tiles with the same number touch, they merge into one tile with double the value</li>
+                <li class="mb-2">Plan your moves carefully to avoid getting stuck with no valid moves</li>
+                <li class="mb-2">Reach the legendary 2048 tile to win, or challenge yourself to go even further!</li>
+            </ul>
+        </section>
+
+        <!-- Game Features Section -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Game Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-apple-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Brain Training</h3>
+                    <p>Enhance your cognitive abilities and practice logical thinking while having fun!</p>
+                </div>
+                <div class="bg-apple-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Simple Controls</h3>
+                    <p>Easy to learn but difficult to master, with intuitive controls on both desktop and mobile.</p>
+                </div>
+                <div class="bg-apple-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Addictive Gameplay</h3>
+                    <p>The "just one more try" appeal keeps you engaged for hours of entertainment!</p>
+                </div>
+                <div class="bg-apple-gray-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Progress Tracking</h3>
+                    <p>Challenge yourself to beat your highest score and track your improvement over time.</p>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Strategic Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-apple-green pl-4">
+                    <p class="text-lg">Keep your highest value tiles in one corner of the board for better organization.</p>
+                </div>
+                <div class="border-l-4 border-apple-orange pl-4">
+                    <p class="text-lg">Focus on maintaining a clear path for merging tiles as you progress.</p>
+                </div>
+                <div class="border-l-4 border-apple-pink pl-4">
+                    <p class="text-lg">Think several moves ahead, like in chess, to achieve higher scores.</p>
+                </div>
+                <div class="border-l-4 border-apple-teal pl-4">
+                    <p class="text-lg">Be patient and methodical—hasty moves often lead to game-ending situations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Play Section -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Why Play Wise Hero?</h2>
+            <p class="text-lg mb-6">Wise Hero offers a perfect balance of casual gaming and strategic depth. Unlike mindless games, each session exercises your brain while providing satisfying entertainment. It's the perfect game for:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-apple-blue bg-opacity-10 p-4 rounded-lg text-center">
+                    <span class="text-apple-blue text-4xl block mb-2">🧠</span>
+                    <h3 class="font-semibold mb-1">Mental Breaks</h3>
+                    <p>A productive way to refresh your mind during work or study breaks</p>
+                </div>
+                <div class="bg-apple-purple bg-opacity-10 p-4 rounded-lg text-center">
+                    <span class="text-apple-purple text-4xl block mb-2">⏱️</span>
+                    <h3 class="font-semibold mb-1">Quick Sessions</h3>
+                    <p>Perfect for short gaming sessions while waiting or commuting</p>
+                </div>
+                <div class="bg-apple-green bg-opacity-10 p-4 rounded-lg text-center">
+                    <span class="text-apple-green text-4xl block mb-2">🏆</span>
+                    <h3 class="font-semibold mb-1">Skill Building</h3>
+                    <p>Improve your strategic thinking and planning abilities over time</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-apple-dark text-white py-8 px-4">
+        <div class="container mx-auto max-w-5xl text-center">
+            <p class="mb-4">&copy; 2023 Wise Hero | <a href="https://wisehero.site" class="text-apple-blue hover:underline">wisehero.site</a></p>
+            <p class="text-apple-gray-500 text-sm">Challenge your mind with the ultimate strategic puzzle adventure!</p>
+        </div>
+    </footer>
+    
+    <!-- Game Interaction Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameFrame = document.querySelector('.game-frame');
+            const gameContainer = document.querySelector('.game-container');
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            
+            // Use the default game source
+            let currentGameUrl = "https://2048game.com/";
+            
+            // Prevent page scrolling when using arrow keys for the game
+            document.addEventListener('keydown', function(e) {
+                if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                    e.preventDefault();
+                    
+                    // Try to ensure the game has focus
+                    try {
+                        gameFrame.contentWindow.focus();
+                    } catch(e) {
+                        console.log('Key focus error:', e);
+                    }
+                }
+            });
+            
+            // Apply focus to iframe when loaded
+            gameFrame.addEventListener('load', function() {
+                try {
+                    // Hide loading overlay
+                    loadingOverlay.style.display = 'none';
+                    
+                    // Focus the game window
+                    gameFrame.contentWindow.focus();
+                } catch(e) {
+                    console.log('Unable to focus game window:', e);
+                }
+            });
+            
+            // Add error handler for iframe loading issues
+            gameFrame.addEventListener('error', function() {
+                loadingOverlay.innerHTML = '<div class="text-apple-red font-semibold">Error loading game. Please refresh the page and try again.</div>';
+            });
+            
+            // Click handler on game container specifically
+            gameContainer.addEventListener('click', function() {
+                try {
+                    gameFrame.contentWindow.focus();
+                } catch(e) {
+                    console.log('Focus attempt failed:', e);
+                }
+            });
+            
+            // Add a fallback if the game doesn't load properly after 8 seconds
+            setTimeout(function() {
+                if (loadingOverlay.style.display !== 'none') {
+                    loadingOverlay.innerHTML = '<div class="text-apple-orange font-semibold">Game is taking longer than expected. Please refresh the page to try again.</div>';
+                }
+            }, 8000);
+        });
+    </script>
+</body>
+</html> 
