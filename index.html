@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://2048.io/ https://game206669.konggames.com/ https://2048game.com/; connect-src 'self' https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4HCNMQQF5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP6B15KZ90"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-M4HCNMQQF5');
+      gtag('config', 'G-BP6B15KZ90');
     </script>
-    <title>Wise Hero - Strategic Puzzle Adventure Game | Play Online</title>
-    <meta name="description" content="Challenge your mind with Wise Hero, a strategic puzzle game that tests your logical thinking. Combine identical numbers to achieve higher scores and have fun!">
-    <link rel="canonical" href="https://wisehero.site/">
-    <meta name="keywords" content="wise hero, puzzle game, brain game, strategy game, online game, free game, 2048">
-    <meta property="og:title" content="Wise Hero - Strategic Puzzle Game">
-    <meta property="og:description" content="Challenge your mind with this addictive strategic puzzle game.">
-    <meta property="og:url" content="https://wisehero.site/">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMWKCCTTQ8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZMWKCCTTQ8');
+    </script>
+    <title>WebDev Navigator - Essential Resources for Web Developers</title>
+    <meta name="description" content="A curated collection of essential tools and resources for web developers, indie hackers, and digital creators.">
+    <link rel="canonical" href="https://webdev.navigator.com/">
+    <meta name="keywords" content="web development, tools, resources, indie hackers, digital creators, AI tools">
+    <meta property="og:title" content="WebDev Navigator - Essential Resources for Web Developers">
+    <meta property="og:description" content="A curated collection of essential tools and resources for web developers, indie hackers, and digital creators.">
+    <meta property="og:url" content="https://webdev.navigator.com/">
     <meta property="og:type" content="website">
     <!-- Use Tailwind CDN for development, for production use PostCSS plugin -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -95,116 +104,451 @@
             justify-content: center;
             z-index: 10;
         }
+        body {
+            scroll-behavior: smooth;
+        }
+        .section-link:hover {
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+        }
+        .nav-buttons {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Comment styles */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: none; /* 移除可能的最大高度限制 */
+        }
+        
+        .comment-collapsed {
+            position: relative;
+        }
+        
+        .expand-comment {
+            cursor: pointer;
+            display: block; /* 确保按钮始终显示为块级元素 */
+            width: fit-content;
+        }
+        
+        /* 确保评论文本正常展开 */
+        .comment-text {
+            word-break: break-word;
+            white-space: normal;
+        }
+        
+        /* 搜索高亮样式 */
+        .bg-yellow-200 {
+            background-color: #fef9c3;
+            border-radius: 2px;
+        }
+        
+        /* Removing orange highlight since we only use yellow now */
+        .bg-orange-200 {
+            background-color: #fed7aa;
+            border-radius: 2px;
+            border: 1px solid #f97316;
+            box-shadow: 0 0 3px 1px rgba(249, 115, 22, 0.3);
+            padding: 0 2px;
+            position: relative;
+        }
     </style>
 </head>
 <body class="bg-apple-gray-100 text-apple-gray-900 font-sans">
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="bg-gradient-to-r from-apple-blue to-apple-purple py-8 px-4 md:px-8">
         <div class="container mx-auto max-w-5xl">
-            <h1 class="text-3xl md:text-5xl font-bold text-white text-center mb-4">Wise Hero</h1>
-            <p class="text-xl text-white text-center">A challenging strategic puzzle adventure that sharpens your mind!</p>
+            <h1 class="text-3xl md:text-5xl font-bold text-white text-center mb-4">WebDev Navigator</h1>
+            <p class="text-xl text-white text-center">Essential resources for web developers, indie hackers, and digital creators</p>
         </div>
     </header>
 
-    <main class="container mx-auto max-w-5xl px-4 py-8">
-        <!-- Game Section -->
-        <section class="mb-12">
-            <div class="game-container">
-                <div class="loading-overlay">
-                    <div class="text-apple-blue font-semibold">Loading game...</div>
+    <!-- Navigation buttons -->
+    <div class="nav-buttons bg-apple-gray-100/80 py-3 border-b border-apple-gray-200 mb-6">
+        <div class="container mx-auto max-w-5xl px-4">
+            <!-- Dropdown for mobile -->
+            <div class="md:hidden space-y-2">
+                <select id="mobile-nav" class="w-full py-2 px-3 rounded-lg border border-apple-gray-300 bg-white text-apple-gray-900 focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                    <option value="">Navigate to section...</option>
+                    <option value="#research">Research</option>
+                    <option value="#essential-tools">Essential Tools</option>
+                    <option value="#competitor-research">Competitor Research</option>
+                    <option value="#templates">Templates</option>
+                    <option value="#news-resources">News & Resources</option>
+                </select>
+                
+                <!-- Search for mobile -->
+                <div class="relative">
+                    <input type="text" id="mobile-search" placeholder="Search page..." class="w-full py-2 px-3 rounded-lg border border-apple-gray-300 bg-white text-apple-gray-900 focus:outline-none focus:ring-2 focus:ring-apple-blue pl-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-apple-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                 </div>
-                <iframe 
-                    class="game-frame"
-                    src="https://2048game.com/"
-                    frameborder="0"
-                    scrolling="no"
-                    loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals allow-top-navigation"
-                    allowfullscreen>
-                </iframe>
             </div>
             
-            <!-- Game Controls Help -->
-            <div class="text-center mt-4 p-3 bg-apple-yellow bg-opacity-10 rounded-lg border border-apple-yellow">
-                <p class="font-semibold text-apple-orange">⌨️ Game Controls</p>
-                <p>Use arrow keys to move tiles or swipe on mobile. Combine identical numbers to achieve higher scores!</p>
+            <!-- Navigation and search for desktop -->
+            <div class="hidden md:flex flex-wrap justify-between items-center">
+                <div class="flex flex-wrap justify-center gap-2">
+            <a href="#research" class="px-3 py-2 bg-apple-blue text-white rounded-full text-sm font-medium hover:bg-apple-blue/90 transition-all">Research</a>
+            <a href="#essential-tools" class="px-3 py-2 bg-apple-purple text-white rounded-full text-sm font-medium hover:bg-apple-purple/90 transition-all">Essential Tools</a>
+            <a href="#competitor-research" class="px-3 py-2 bg-apple-green text-white rounded-full text-sm font-medium hover:bg-apple-green/90 transition-all">Competitor Research</a>
+            <a href="#templates" class="px-3 py-2 bg-apple-orange text-white rounded-full text-sm font-medium hover:bg-apple-orange/90 transition-all">Templates</a>
+            <a href="#news-resources" class="px-3 py-2 bg-apple-red text-white rounded-full text-sm font-medium hover:bg-apple-red/90 transition-all">News & Resources</a>
+                </div>
+                
+                <!-- Search for desktop -->
+                <div class="relative ml-4 w-64">
+                    <input type="text" id="desktop-search" placeholder="Search page..." class="w-full py-2 px-3 rounded-lg border border-apple-gray-300 bg-white text-apple-gray-900 focus:outline-none focus:ring-2 focus:ring-apple-blue pl-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-apple-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto max-w-5xl px-4 py-4">
+        <!-- Introduction -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <p class="text-lg mb-4">A carefully curated collection of tools and resources accumulated over years of web development experience. While many navigation sites have disappeared, these are the resources I personally use regularly. Organized into five key categories to streamline your workflow from research to launch.</p>
         </section>
 
-        <!-- Game Overview Section -->
-        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Game Overview</h2>
-            <p class="text-lg mb-4">Wise Hero is an engaging puzzle game that tests your strategic thinking and planning abilities. The game challenges you to combine identical tiles to create higher-valued ones and aim for the highest score possible. With simple controls but deep strategy, it's perfect for quick gaming sessions or extended play.</p>
+        <!-- Research & Keywords Section -->
+        <section id="research" class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 border-b border-apple-gray-200 pb-2">Research & Keyword Analysis</h2>
             
-            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mt-8 mb-4">How to Play</h2>
-            <ul class="list-disc pl-6 mb-6 text-lg">
-                <li class="mb-2">Use arrow keys or swipe gestures to move all tiles in one direction</li>
-                <li class="mb-2">When two tiles with the same number touch, they merge into one tile with double the value</li>
-                <li class="mb-2">Plan your moves carefully to avoid getting stuck with no valid moves</li>
-                <li class="mb-2">Reach the legendary 2048 tile to win, or challenge yourself to go even further!</li>
-            </ul>
-        </section>
-
-        <!-- Game Features Section -->
-        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Game Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="bg-apple-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Brain Training</h3>
-                    <p>Enhance your cognitive abilities and practice logical thinking while having fun!</p>
-                </div>
-                <div class="bg-apple-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Simple Controls</h3>
-                    <p>Easy to learn but difficult to master, with intuitive controls on both desktop and mobile.</p>
-                </div>
-                <div class="bg-apple-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Addictive Gameplay</h3>
-                    <p>The "just one more try" appeal keeps you engaged for hours of entertainment!</p>
-                </div>
-                <div class="bg-apple-gray-100 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Progress Tracking</h3>
-                    <p>Challenge yourself to beat your highest score and track your improvement over time.</p>
-                </div>
-            </div>
-            
-            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Strategic Tips</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="border-l-4 border-apple-green pl-4">
-                    <p class="text-lg">Keep your highest value tiles in one corner of the board for better organization.</p>
+                <a href="https://www.google.com/search" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Google Autocomplete</h3>
+                    <p class="text-apple-gray-700">Find popular search queries using Google's autocomplete feature. Append "keyword=" to your search.</p>
+                </a>
+                
+                <a href="https://www.toolify.ai/AI-Tools-revenue" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Toolify Rankings</h3>
+                    <p class="text-apple-gray-700">Track popular AI tools and their estimated revenue for market research.</p>
+                </a>
+                
+                <a href="https://theresanaiforthat.com/" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">AI Need Catalog</h3>
+                    <p class="text-apple-gray-700">Explore user needs and demands through AI tool listings and categories.</p>
+                </a>
+                
+                <a href="https://ahrefs.com/keyword-difficulty" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Keyword Difficulty</h3>
+                    <p class="text-apple-gray-700">Assess SEO competition for target keywords before launching your project.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Essential Tools Section -->
+        <section id="essential-tools" class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 border-b border-apple-gray-200 pb-2">Essential Launch Tools</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Domain Search</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="https://leandomainsearch.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Lean Domain Search</h4>
+                        <p class="text-sm text-apple-gray-700">Find available domain names based on keywords.</p>
+                    </a>
+                    
+                    <a href="https://query.domains" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Query Domains</h4>
+                        <p class="text-sm text-apple-gray-700">Advanced domain search with filters.</p>
+                    </a>
+                    
+                    <a href="https://instantdomainsearch.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Instant Domain Search</h4>
+                        <p class="text-sm text-apple-gray-700">Real-time domain availability checking.</p>
+                    </a>
                 </div>
-                <div class="border-l-4 border-apple-orange pl-4">
-                    <p class="text-lg">Focus on maintaining a clear path for merging tiles as you progress.</p>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Domain Registrars</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="https://spaceship.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Spaceship</h4>
+                        <p class="text-sm text-apple-gray-700">Modern domain management platform.</p>
+                    </a>
+                    
+                    <a href="https://porkbun.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Porkbun</h4>
+                        <p class="text-sm text-apple-gray-700">Affordable domain registration with free privacy.</p>
+                    </a>
+                    
+                    <a href="https://namecheap.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Namecheap</h4>
+                        <p class="text-sm text-apple-gray-700">Popular registrar with competitive pricing.</p>
+                    </a>
                 </div>
-                <div class="border-l-4 border-apple-pink pl-4">
-                    <p class="text-lg">Think several moves ahead, like in chess, to achieve higher scores.</p>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Hosting & Deployment</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="https://github.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">GitHub</h4>
+                        <p class="text-sm text-apple-gray-700">Code repository and collaboration platform.</p>
+                    </a>
+                    
+                    <a href="https://cloudflare.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Cloudflare</h4>
+                        <p class="text-sm text-apple-gray-700">CDN, security, and serverless hosting.</p>
+                    </a>
+                    
+                    <a href="https://vercel.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Vercel</h4>
+                        <p class="text-sm text-apple-gray-700">Frontend deployment platform with optimized performance.</p>
+                    </a>
                 </div>
-                <div class="border-l-4 border-apple-teal pl-4">
-                    <p class="text-lg">Be patient and methodical—hasty moves often lead to game-ending situations.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Analytics & Search Console</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Google Search Console</h4>
+                        <p class="text-sm text-apple-gray-700">Monitor and optimize your site's presence in search results.</p>
+                    </a>
+                    
+                    <a href="https://analytics.google.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Google Analytics</h4>
+                        <p class="text-sm text-apple-gray-700">Track website traffic and user behavior.</p>
+                    </a>
+                    
+                    <a href="https://www.bing.com/webmasters/submiturl" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Bing Webmaster Tools</h4>
+                        <p class="text-sm text-apple-gray-700">Submit your site to Bing search engine.</p>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Why Play Section -->
-        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-4">Why Play Wise Hero?</h2>
-            <p class="text-lg mb-6">Wise Hero offers a perfect balance of casual gaming and strategic depth. Unlike mindless games, each session exercises your brain while providing satisfying entertainment. It's the perfect game for:</p>
+        <!-- Competitor Research Section -->
+        <section id="competitor-research" class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 border-b border-apple-gray-200 pb-2">Competitor Research</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div class="bg-apple-blue bg-opacity-10 p-4 rounded-lg text-center">
-                    <span class="text-apple-blue text-4xl block mb-2">🧠</span>
-                    <h3 class="font-semibold mb-1">Mental Breaks</h3>
-                    <p>A productive way to refresh your mind during work or study breaks</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="https://aitdk.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Traffic & Keyword Analysis</h3>
+                    <p class="text-apple-gray-700">View website traffic and ranking keywords with AITDK.</p>
+                </a>
+                
+                <a href="https://ahrefs.com/free-seo-tools" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Backlink Analysis</h3>
+                    <p class="text-apple-gray-700">Examine competitors' backlink profiles using Ahrefs free tools.</p>
+                </a>
+                
+                <a href="https://semrush.com" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Keyword Gap Analysis</h3>
+                    <p class="text-apple-gray-700">Identify keyword opportunities your competitors are ranking for.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section id="templates" class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 border-b border-apple-gray-200 pb-2">Project Templates</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Open Source Boilerplates</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <a href="https://github.com/openRin/Rin" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Dynamic Cloudflare Blog</h4>
+                        <p class="text-sm text-apple-gray-700">Blog system with Cloudflare Pages, Workers, D1, and R2.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ixartz/Next-js-Boilerplate" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Next.js 15 Boilerplate</h4>
+                        <p class="text-sm text-apple-gray-700">Starter with App Router and Page Router support.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ixartz/SaaS-Boilerplate" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">SaaS Boilerplate</h4>
+                        <p class="text-sm text-apple-gray-700">Next.js + Tailwind CSS + Shadcn UI + TypeScript.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Next.js Landing Page</h4>
+                        <p class="text-sm text-apple-gray-700">Free template for marketing sites and landing pages.</p>
+                    </a>
                 </div>
-                <div class="bg-apple-purple bg-opacity-10 p-4 rounded-lg text-center">
-                    <span class="text-apple-purple text-4xl block mb-2">⏱️</span>
-                    <h3 class="font-semibold mb-1">Quick Sessions</h3>
-                    <p>Perfect for short gaming sessions while waiting or commuting</p>
+                
+                <div class="text-center mt-2">
+                    <a href="#" class="text-apple-blue hover:underline inline-flex items-center" id="toggleMoreTemplates">
+                        <span>View more templates</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="bg-apple-green bg-opacity-10 p-4 rounded-lg text-center">
-                    <span class="text-apple-green text-4xl block mb-2">🏆</span>
-                    <h3 class="font-semibold mb-1">Skill Building</h3>
-                    <p>Improve your strategic thinking and planning abilities over time</p>
+                
+                <div id="moreTemplates" class="hidden mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://github.com/ixartz/Astro-boilerplate" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Astro Boilerplate</h4>
+                        <p class="text-sm text-apple-gray-700">Responsive blog and portfolio template with Astro.</p>
+                    </a>
+                    
+                    <a href="https://github.com/weijunext/landing-page-boilerplate" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Versatile Landing Page</h4>
+                        <p class="text-sm text-apple-gray-700">For various projects and marketing campaigns.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ai-aigc-studio/Viggle-AI-WebUI" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Viggle AI Web Client</h4>
+                        <p class="text-sm text-apple-gray-700">Open source AI interface.</p>
+                    </a>
+                    
+                    <a href="https://github.com/weijunext/new-blog" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Weekly Blog System</h4>
+                        <p class="text-sm text-apple-gray-700">Blog platform for weekly content updates.</p>
+                    </a>
+                    
+                    <a href="https://github.com/daimajia/huntscreens" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Hunt Screens</h4>
+                        <p class="text-sm text-apple-gray-700">Screenshots of projects on Producthunt, YC, and Indiehackers.</p>
+                    </a>
+                    
+                    <a href="https://github.com/weijunext/smart-excel-ai" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Smart Excel AI</h4>
+                        <p class="text-sm text-apple-gray-700">Generate Excel formulas using ChatGPT.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ashleyrudland/nextjs_vps" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">NextJS VPS Example</h4>
+                        <p class="text-sm text-apple-gray-700">NextJS deployment on VPS servers.</p>
+                    </a>
+                    
+                    <a href="https://github.com/Pwntus/change-hairstyle-ai" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Hairstyle AI</h4>
+                        <p class="text-sm text-apple-gray-700">Get a new hairstyle in seconds with AI.</p>
+                    </a>
+                    
+                    <a href="https://github.com/replicate/green-screen-creator" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Green Screen Creator</h4>
+                        <p class="text-sm text-apple-gray-700">Track objects in videos and add green screen backgrounds.</p>
+                    </a>
+                    
+                    <a href="https://github.com/wasp-lang/open-saas" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Open SaaS</h4>
+                        <p class="text-sm text-apple-gray-700">Free, open-source SaaS app starter for React & Node.js.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ocluf/justship" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">JustShip Svelte SaaS</h4>
+                        <p class="text-sm text-apple-gray-700">Svelte 5 and SvelteKit SaaS boilerplate with full features.</p>
+                    </a>
+                    
+                    <a href="https://github.com/JavascriptMick/supanuxt-saas" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">SupaNuxt SaaS</h4>
+                        <p class="text-sm text-apple-gray-700">Nuxt3, Supabase, OAuth, Prisma, TRPC, Stripe, and more.</p>
+                    </a>
+                    
+                    <a href="https://github.com/saasfly/saasfly" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">SaaSfly</h4>
+                        <p class="text-sm text-apple-gray-700">SaaS template with bun create saasfly.</p>
+                    </a>
+                    
+                    <a href="https://github.com/mundane799699/xlike-web" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">ShipFast</h4>
+                        <p class="text-sm text-apple-gray-700">TypeScript SaaS template.</p>
+                    </a>
                 </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Navigation Site Templates</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://github.com/fre123-com/fre123-nav/" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">FRE123 Navigator</h4>
+                        <p class="text-sm text-apple-gray-700">Free resource sharing platform with one-click deployment.</p>
+                    </a>
+                    
+                    <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">WebStack.cc</h4>
+                        <p class="text-sm text-apple-gray-700">Static responsive website navigation template.</p>
+                    </a>
+                    
+                    <a href="https://github.com/dubinc/oss-gallery" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">OSS Gallery</h4>
+                        <p class="text-sm text-apple-gray-700">Crowdsourced list of the best open-source projects.</p>
+                    </a>
+                    
+                    <a href="https://github.com/6677-ai/tap4-ai-webui" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">AI Tools Directory</h4>
+                        <p class="text-sm text-apple-gray-700">One-click deployment for AI tools directory.</p>
+                    </a>
+                    
+                    <a href="https://github.com/all-in-aigc/gpts-works" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">GPTs Store</h4>
+                        <p class="text-sm text-apple-gray-700">A third-party GPTs directory.</p>
+                    </a>
+                    
+                    <a href="https://github.com/ddahan/ui-libs" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">UI Libs Picker</h4>
+                        <p class="text-sm text-apple-gray-700">A UI library picker for Vue 3 / Nuxt 3.</p>
+                    </a>
+                    
+                    <a href="https://github.com/DokeyAI/dokeyai-data" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">DokeyAI Data</h4>
+                        <p class="text-sm text-apple-gray-700">Public AI tools data for websites.</p>
+                    </a>
+                    
+                    <a href="https://vercel.com/templates" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                        <h4 class="font-semibold mb-1">Vercel Template Center</h4>
+                        <p class="text-sm text-apple-gray-700">Ready-to-use templates for Vercel deployments.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Resources Section -->
+        <section id="news-resources" class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 border-b border-apple-gray-200 pb-2">News & Resources</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://liberating-doll-b8a.notion.site/Reddit-1a8e8aed91b18021839ecba8b74e530b" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Reddit Subreddit Directory</h3>
+                    <p class="text-apple-gray-700">Curated list of helpful Reddit communities for web development.</p>
+                </a>
+                
+                <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=en" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Google SEO Fundamentals</h3>
+                    <p class="text-apple-gray-700">Official guidelines for creating helpful, search-friendly content.</p>
+                </a>
+                
+                <a href="https://ahrefs.com/websites#trending" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Trending Websites</h3>
+                    <p class="text-apple-gray-700">Discover fast-growing websites identified by Ahrefs.</p>
+                </a>
+                
+                <a href="https://docs.google.com/spreadsheets/d/1QOdqq9KbjQj1JZO43vc1pir2rnEEsMgid=0" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">AI Video SaaS Tools</h3>
+                    <p class="text-apple-gray-700">Comprehensive list of AI video SaaS tools and platforms.</p>
+                </a>
+                
+                <a href="https://docs.google.com/spreadsheets/d/1eUni44pIURML2VWFFXKzNmmWKuuam9_ynr5Fo_Q74M/edit?gid=83151001" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">Solopreneur Report</h3>
+                    <p class="text-apple-gray-700">Starter Story Premium Solopreneur Report 2.0 with insights.</p>
+                </a>
+                
+                <a href="https://www.500mrr.com/" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">$500/Month Side Projects</h3>
+                    <p class="text-apple-gray-700">Showcase of successful side projects generating monthly revenue.</p>
+                </a>
+                
+                <a href="https://news.ycombinator.com/item?id=42373343" target="_blank" rel="noopener" class="section-link bg-apple-gray-100 p-4 rounded-lg hover:shadow-md transition-all">
+                    <h3 class="text-xl font-semibold text-apple-purple mb-2">HN: Side Projects in 2024</h3>
+                    <p class="text-apple-gray-700">Ask HN thread about side projects making $500/month in 2024.</p>
+                </a>
             </div>
         </section>
     </main>
@@ -212,68 +556,325 @@
     <!-- Footer Section -->
     <footer class="bg-apple-dark text-white py-8 px-4">
         <div class="container mx-auto max-w-5xl text-center">
-            <p class="mb-4">&copy; 2023 Wise Hero | <a href="https://wisehero.site" class="text-apple-blue hover:underline">wisehero.site</a></p>
-            <p class="text-apple-gray-500 text-sm">Challenge your mind with the ultimate strategic puzzle adventure!</p>
+            <p class="mb-4">&copy; 2025 WebDev Navigator</p>
+            <p class="text-apple-gray-500 text-sm">A curated collection of essential resources for web developers and digital creators.</p>
         </div>
     </footer>
     
-    <!-- Game Interaction Script -->
+    <!-- Comments/Feedback Section -->
+    <section class="py-10 bg-apple-gray-100">
+        <div class="container mx-auto max-w-5xl px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-apple-blue mb-6 text-center">Share Your Feedback</h2>
+            <p class="text-center mb-8 text-apple-gray-700">We appreciate your comments and suggestions to help improve this resource collection.</p>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <form id="feedback-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-apple-gray-700 mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-apple-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-apple-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-apple-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                    </div>
+                    
+                    <div>
+                        <label for="feedback" class="block text-sm font-medium text-apple-gray-700 mb-1">Your Feedback</label>
+                        <textarea id="feedback" name="feedback" rows="5" class="w-full px-3 py-2 border border-apple-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-apple-blue"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="category" class="block text-sm font-medium text-apple-gray-700 mb-1">Category</label>
+                        <select id="category" name="category" class="w-full px-3 py-2 border border-apple-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                            <option value="general">General Feedback</option>
+                            <option value="suggestion">Resource Suggestion</option>
+                            <option value="improvement">Site Improvement</option>
+                            <option value="bug">Bug Report</option>
+                        </select>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="px-6 py-2 bg-apple-blue text-white font-medium rounded-md hover:bg-apple-blue/90 transition-all">
+                            Submit Feedback
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="feedback-success" class="hidden mt-4 p-4 bg-apple-green/10 border border-apple-green rounded-md">
+                    <p class="text-apple-green text-center">Thank you for your feedback! We appreciate your input.</p>
+                </div>
+            </div>
+            
+            <!-- User Comments Display -->
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold text-apple-purple mb-4">Recent Comments</h3>
+                <div class="space-y-4" id="comments-container">
+                    <!-- Sample comments (these would be dynamically loaded in a real app) -->
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-medium">John Doe</h4>
+                                <p class="text-sm text-apple-gray-500" data-timestamp="2023-11-05T09:30:00Z">Posted 2 days ago</p>
+                            </div>
+                            <span class="px-2 py-1 text-xs bg-apple-blue/10 text-apple-blue rounded-full">Resource Suggestion</span>
+                        </div>
+                        <p class="mt-2 text-apple-gray-700 comment-text line-clamp-2">Great collection! I would suggest adding WebComponents.org as a resource for web component examples and templates.</p>
+                        <button class="text-apple-blue text-sm mt-1 hidden expand-comment">View more</button>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-medium">Jane Smith</h4>
+                                <p class="text-sm text-apple-gray-500" data-timestamp="2023-11-02T14:15:00Z">Posted 5 days ago</p>
+                            </div>
+                            <span class="px-2 py-1 text-xs bg-apple-green/10 text-apple-green rounded-full">General Feedback</span>
+                        </div>
+                        <p class="mt-2 text-apple-gray-700 comment-text line-clamp-2">This site is incredibly helpful for my web development projects. The curated resources save me hours of research time!</p>
+                        <button class="text-apple-blue text-sm mt-1 hidden expand-comment">View more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 引入搜索脚本 -->
+    <script src="search.js"></script>
+    
     <script>
+        // 保留非搜索相关的脚本
         document.addEventListener('DOMContentLoaded', function() {
-            const gameFrame = document.querySelector('.game-frame');
-            const gameContainer = document.querySelector('.game-container');
-            const loadingOverlay = document.querySelector('.loading-overlay');
+            // Toggle more templates visibility
+            const toggleButton = document.getElementById('toggleMoreTemplates');
+            const moreTemplates = document.getElementById('moreTemplates');
             
-            // Use the default game source
-            let currentGameUrl = "https://2048game.com/";
+            if (toggleButton && moreTemplates) {
+                toggleButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isHidden = moreTemplates.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        moreTemplates.classList.remove('hidden');
+                        toggleButton.querySelector('span').textContent = 'Show fewer templates';
+                        toggleButton.querySelector('svg').classList.add('rotate-180');
+                    } else {
+                        moreTemplates.classList.add('hidden');
+                        toggleButton.querySelector('span').textContent = 'View more templates';
+                        toggleButton.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+            }
             
-            // Prevent page scrolling when using arrow keys for the game
-            document.addEventListener('keydown', function(e) {
-                if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('id') !== 'toggleMoreTemplates') {
+                        e.preventDefault();
+                        
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Mobile navigation dropdown
+            const mobileNav = document.getElementById('mobile-nav');
+            if (mobileNav) {
+                mobileNav.addEventListener('change', function() {
+                    if (this.value) {
+                        const targetElement = document.querySelector(this.value);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                            // Reset dropdown to default option after navigation
+                            setTimeout(() => {
+                                this.selectedIndex = 0;
+                            }, 500);
+                        }
+                    }
+                });
+            }
+            
+            // 更新所有带时间戳的评论时间显示
+            function updateCommentTimestamps() {
+                document.querySelectorAll('[data-timestamp]').forEach(timeElement => {
+                    const timestamp = new Date(timeElement.getAttribute('data-timestamp'));
+                    const now = new Date();
+                    const diffMs = now - timestamp;
+                    const diffMinutes = Math.floor(diffMs / 60000);
+                    const diffHours = Math.floor(diffMs / 3600000);
+                    const diffDays = Math.floor(diffMs / 86400000);
+                    
+                    let timeText = '';
+                    if (diffMinutes < 1) {
+                        timeText = 'Just now';
+                    } else if (diffMinutes < 60) {
+                        timeText = `${diffMinutes} minute${diffMinutes > 1 ? 's' : ''} ago`;
+                    } else if (diffHours < 24) {
+                        timeText = `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+                    } else if (diffDays < 30) {
+                        timeText = `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+                    } else {
+                        const month = timestamp.toLocaleString('default', { month: 'short' });
+                        const day = timestamp.getDate();
+                        timeText = `${month} ${day}`;
+                    }
+                    
+                    timeElement.textContent = timeText;
+                });
+            }
+            
+            // 处理评论文本的展开/折叠功能
+            function setupCommentExpansion() {
+                // 移除现有的事件监听器，防止重复绑定
+                document.querySelectorAll('.expand-comment').forEach(button => {
+                    const newButton = button.cloneNode(true);
+                    button.parentNode.replaceChild(newButton, button);
+                });
+
+                document.querySelectorAll('.comment-text').forEach(comment => {
+                    // 强制计算实际高度
+                    const originalDisplay = comment.style.display;
+                    const originalMaxHeight = comment.style.maxHeight;
+                    const originalWebkitLineClamp = comment.style.webkitLineClamp;
+                    
+                    // 临时移除限制以测量实际高度
+                    comment.style.display = 'block';
+                    comment.style.maxHeight = 'none';
+                    comment.style.webkitLineClamp = 'unset';
+                    
+                    // 获取实际内容高度和行高
+                    const fullHeight = comment.scrollHeight;
+                    const lineHeight = parseInt(window.getComputedStyle(comment).lineHeight) || 20;
+                    const twoLinesHeight = lineHeight * 2;
+                    
+                    // 恢复原始属性
+                    comment.style.display = originalDisplay;
+                    comment.style.maxHeight = originalMaxHeight;
+                    comment.style.webkitLineClamp = originalWebkitLineClamp;
+                    
+                    // 判断是否应该显示"查看更多"按钮
+                    const isOverflowing = fullHeight > twoLinesHeight;
+                    
+                    // 获取"查看更多"按钮
+                    const expandButton = comment.nextElementSibling;
+                    if (!expandButton || !expandButton.classList.contains('expand-comment')) {
+                        return;
+                    }
+                    
+                    // 设置按钮初始状态
+                    if (isOverflowing) {
+                        expandButton.classList.remove('hidden');
+                        expandButton.textContent = 'View more';
+                        
+                        // 添加展开/折叠事件监听
+                        expandButton.addEventListener('click', function() {
+                            if (comment.classList.contains('line-clamp-2')) {
+                                // 展开评论
+                                comment.classList.remove('line-clamp-2');
+                                this.textContent = 'View less';
+                            } else {
+                                // 折叠评论
+                                comment.classList.add('line-clamp-2');
+                                this.textContent = 'View more';
+                            }
+                        });
+                    } else {
+                        expandButton.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // 添加新评论到评论区
+            function addNewComment(name, text, category) {
+                const now = new Date();
+                const timestamp = now.toISOString();
+                
+                // 创建新评论元素
+                const newComment = document.createElement('div');
+                newComment.className = 'bg-white p-4 rounded-lg shadow-sm';
+                
+                // 设置评论的颜色和文本
+                let categoryColor = 'blue';
+                if (category === 'improvement') categoryColor = 'green';
+                if (category === 'bug') categoryColor = 'red';
+                if (category === 'suggestion') categoryColor = 'purple';
+                
+                // 处理HTML转义，防止XSS攻击
+                const escapeHTML = (str) => {
+                    return str
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#039;');
+                };
+                
+                newComment.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-medium">${escapeHTML(name)}</h4>
+                            <p class="text-sm text-apple-gray-500" data-timestamp="${timestamp}">Just now</p>
+                        </div>
+                        <span class="px-2 py-1 text-xs bg-apple-${categoryColor}/10 text-apple-${categoryColor} rounded-full">${document.getElementById('category').options[document.getElementById('category').selectedIndex].text}</span>
+                    </div>
+                    <p class="mt-2 text-apple-gray-700 comment-text line-clamp-2">${escapeHTML(text)}</p>
+                    <button class="text-apple-blue text-sm mt-1 expand-comment">View more</button>
+                `;
+                
+                // 添加到评论容器的最前面
+                const commentsContainer = document.getElementById('comments-container');
+                commentsContainer.insertBefore(newComment, commentsContainer.firstChild);
+                
+                // 重新设置评论展开功能
+                setTimeout(setupCommentExpansion, 10); // 短暂延迟以确保DOM更新完成
+            }
+            
+            // 处理表单提交
+            const feedbackForm = document.getElementById('feedback-form');
+            const feedbackSuccess = document.getElementById('feedback-success');
+            
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Try to ensure the game has focus
-                    try {
-                        gameFrame.contentWindow.focus();
-                    } catch(e) {
-                        console.log('Key focus error:', e);
-                    }
-                }
-            });
-            
-            // Apply focus to iframe when loaded
-            gameFrame.addEventListener('load', function() {
-                try {
-                    // Hide loading overlay
-                    loadingOverlay.style.display = 'none';
+                    // 获取表单数据
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const feedbackText = document.getElementById('feedback').value;
+                    const category = document.getElementById('category').value;
                     
-                    // Focus the game window
-                    gameFrame.contentWindow.focus();
-                } catch(e) {
-                    console.log('Unable to focus game window:', e);
-                }
-            });
+                    // 验证表单数据
+                    if (!name || !feedbackText) {
+                        alert('Please fill in your name and feedback.');
+                        return;
+                    }
+                    
+                    // 添加新评论到评论区
+                    addNewComment(name, feedbackText, category);
+                    
+                    // 显示成功消息
+                    feedbackForm.classList.add('hidden');
+                    feedbackSuccess.classList.remove('hidden');
+                    
+                    // 重置表单
+                    setTimeout(() => {
+                        feedbackForm.reset();
+                        feedbackForm.classList.remove('hidden');
+                        feedbackSuccess.classList.add('hidden');
+                    }, 3000);
+                });
+            }
             
-            // Add error handler for iframe loading issues
-            gameFrame.addEventListener('error', function() {
-                loadingOverlay.innerHTML = '<div class="text-apple-red font-semibold">Error loading game. Please refresh the page and try again.</div>';
-            });
+            // 初始设置评论时间和展开功能
+            updateCommentTimestamps();
+            setupCommentExpansion();
             
-            // Click handler on game container specifically
-            gameContainer.addEventListener('click', function() {
-                try {
-                    gameFrame.contentWindow.focus();
-                } catch(e) {
-                    console.log('Focus attempt failed:', e);
-                }
-            });
-            
-            // Add a fallback if the game doesn't load properly after 8 seconds
-            setTimeout(function() {
-                if (loadingOverlay.style.display !== 'none') {
-                    loadingOverlay.innerHTML = '<div class="text-apple-orange font-semibold">Game is taking longer than expected. Please refresh the page to try again.</div>';
-                }
-            }, 8000);
+            // 每分钟更新一次时间显示
+            setInterval(updateCommentTimestamps, 60000);
         });
     </script>
 </body>
